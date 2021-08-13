@@ -20,6 +20,10 @@ public class TicTacToe{
 	
 	static void gameplay() {
 		do {
+			if(moves>8) {
+				System.out.println("Draw!!!");
+				break;
+			}
 			if(moves%2==0) {
 				System.out.println("It is X's turn. Enter a number corresponding to the spot you would like to fill!");
 				Scanner choiceObj = new Scanner(System.in);
@@ -40,7 +44,7 @@ public class TicTacToe{
 			System.out.println("|" + boardValues[0] + "|" + boardValues[1] + "|" + boardValues[2] + "|" );
 			System.out.println("|" + boardValues[3] + "|" + boardValues[4] + "|" + boardValues[5] + "|" );
 			System.out.println("|" + boardValues[6] + "|" + boardValues[7] + "|" + boardValues[8] + "|" + "\n" );
-		} while((checkWinner() != true) || moves <= 9);
+		} while(checkWinner() != true);
 		
 	}
 	
@@ -75,11 +79,12 @@ public class TicTacToe{
 			}
 			
 			if(lineCheck.equals("XXX")) {
-				System.out.println("you lose");
+				System.out.println("X Wins!!!");
 				return true;
 			}
 			
 			if(lineCheck.equals("OOO")) {
+				System.out.println("O Wins!!!");
 				return true;
 			}
 		}
