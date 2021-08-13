@@ -28,13 +28,23 @@ public class TicTacToe{
 				System.out.println("It is X's turn. Enter a number corresponding to the spot you would like to fill!");
 				Scanner choiceObj = new Scanner(System.in);
 				int choice_num = choiceObj.nextInt();
-				boardValues[choice_num-1] = "X";
+				if(boardValues[choice_num-1] != "X" && boardValues[choice_num-1] != "O" ) {
+					boardValues[choice_num-1] = "X";
+				} else {
+					System.out.println("You cannot fill this spot. Its been taken!!" + "\n");
+					continue;
+				}
 				System.out.println("You chose to fill spot " + choice_num + "!" + "\n");
 			} else {
 				System.out.println("It is O's turn. Enter a number corresponding to the spot you would like to fill!");
 				Scanner choiceObj = new Scanner(System.in);
 				int choice_num = choiceObj.nextInt();
-				boardValues[choice_num-1] = "O";
+				if(boardValues[choice_num-1] != "O" && boardValues[choice_num-1] != "X") {
+					boardValues[choice_num-1] = "O";
+				} else {
+					System.out.println("You cannot fill this spot. Its been taken!!" + "\n");
+					continue;
+				}
 				System.out.println("You chose to fill spot " + choice_num + "!" + "\n");
 			}
 			
